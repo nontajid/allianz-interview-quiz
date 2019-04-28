@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StepperService } from 'src/app/component-service/stepper.service';
-import { MainJoiner } from 'src/app/main-joinner';
+import { MainJoiner } from 'src/app/main-joiner';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ageValidator } from 'src/app/shared/form-validator';
