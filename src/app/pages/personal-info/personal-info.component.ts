@@ -4,6 +4,7 @@ import { MainJoiner } from 'src/app/main-joiner';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ageValidator } from 'src/app/shared/form-validator';
+import { MainjoinerService } from 'src/app/backend/mainjoiner.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -20,7 +21,8 @@ export class PersonalInfoComponent implements OnInit {
 
   constructor(
     private stepperService: StepperService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private mainJoinerService: MainjoinerService) { }
 
   ngOnInit() {
     this.stepperService.activeStep(this.stepId);
@@ -30,5 +32,11 @@ export class PersonalInfoComponent implements OnInit {
     const newJoiner = new MainJoiner( this.mainJoinerForm.get('name').value,
                                       this.mainJoinerForm.get('email').value,
                                       new Date(this.mainJoinerForm.get('dateOfBirth').value));
+
+    this.mainJoinerService.addMainJoiner(newJoiner)
+                          .subscribe(data => {
+                            newJoiner.id = data.id;
+                            this.stepperService.completeStep(this.stepId);
+                          });
   }
 }

@@ -11,7 +11,7 @@ export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
 
   createDb() {
-    const mainJoinner = [
+    const mainjoinner = [
       {id: 1, name: 'Nontajid Pantarak', email: 'nontajid@gmail.com', dateOfBirth: '1/1/1994'}
     ];
 
@@ -19,7 +19,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 1, mainJoinnerId: 1, name: 'TestUser'}
     ];
 
-    return {mainJoinner, joiner};
+    return {mainjoinner, joiner};
   }
 
   genId<T extends Joiner | MainJoiner >(myTable: T[]): number {
