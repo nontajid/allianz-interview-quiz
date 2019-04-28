@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 // Component
 import { AppComponent } from './app.component';
 import { StepperComponent } from './basic/stepper/stepper.component';
-import { ButtonComponent } from './basic/button/button.component';
 import { DialogComponent } from './basic/dialog/dialog.component';
 import { TermComponent } from './pages/term/term.component';
 import { PersonalInfoComponent } from './pages/personal-info/personal-info.component';
@@ -20,7 +19,6 @@ import { InMemoryDataService } from './in-memory-data.service';
   declarations: [
     AppComponent,
     StepperComponent,
-    ButtonComponent,
     DialogComponent,
     TermComponent,
     PersonalInfoComponent

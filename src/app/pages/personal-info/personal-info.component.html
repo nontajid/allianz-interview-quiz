@@ -1,34 +1,32 @@
 <form [formGroup]="mainJoinerForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">
-      Full Name:
-        <input type="text" id="name"  pattern="[a-zA-Z ]*" placeholder="full name"  formControlName="name" required>
-    </label>
-    <span class="error-message" [hidden]="!mainJoinerForm.get('name').touched || mainJoinerForm.get('name').valid">
-      name is require and must not contain special character or number
-    </span>
+  <div class="row">
+    <div class="row col col-12">
+      <label for="name" class="col col-12">
+        Full Name:
+      </label>
+      <input class="form-text col col-12" type="text" id="name"  pattern="[a-zA-Z ]*" placeholder="full name"  formControlName="name" required>
+      <span class="error-message col col-12" [hidden]="!mainJoinerForm.get('name').touched || mainJoinerForm.get('name').valid">
+        name is require and must not contain special character or number
+      </span>
+    </div>
   </div>
-  <div>
-    <div>
-        <label for="email">
-          Email:
-            <input type="email" id="email" placeholder="email" formControlName="email" required>
-        </label>
-        <span class="error-message" [hidden]="!mainJoinerForm.get('email').touched || mainJoinerForm.get('email').valid">
+  <div class="row">
+    <div class="row col col-6">
+        <label class="col col-12" for="email">Email:</label>
+        <input class="form-text col col-12" type="email" id="email" placeholder="email" formControlName="email" required>
+        <span class="error-message col col-12" [hidden]="!mainJoinerForm.get('email').touched || mainJoinerForm.get('email').valid">
           email is require and must be in correct format
         </span>
     </div>
-    <div>
-        <label for="dateOfBirth">
-          Date of Birth (dd/mm/yyyy):
-            <input type="date" id="dateOfBirth" formControlName="dateOfBirth" required>
-        </label>
+    <div class="row col col-6">
+        <label class="col col-12" for="dateOfBirth">Date of Birth (dd/mm/yyyy):</label>
+        <input class="form-text col col-12" type="date" id="dateOfBirth" formControlName="dateOfBirth" required>
         <span class="error-message" [hidden]="!mainJoinerForm.get('dateOfBirth').touched || mainJoinerForm.get('dateOfBirth').valid">
           age must be over 18
         </span>
     </div>
   </div>
-  <div>
+  <div class="row content-center">
       <button type="submit" [disabled]="!mainJoinerForm.valid">Save & Next</button>
   </div>
 </form>

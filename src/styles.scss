@@ -23,7 +23,46 @@ body, input[type="text"], button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.form-text {
+  height: 32px;
+  padding-left: 12px;
+  border-radius: 5px;
+  font-size: 19px;
+  border: 0;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #3939ff;
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  
+  &:hover {
+    background-color: rgba(57, 57, 255, 0.745);
+  }
+}
 
 .error-message {
   color: red;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.col-12 {
+  flex: 0 1 100%;
+}
+
+.col-6 {
+  flex: 0 1 50%;
+}
+
+.content-center {
+  justify-content: center;
 }
