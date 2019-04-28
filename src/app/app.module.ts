@@ -11,6 +11,8 @@ import { ButtonComponent } from './basic/button/button.component';
 import { DialogComponent } from './basic/dialog/dialog.component';
 import { TermComponent } from './pages/term/term.component';
 import { PersonalInfoComponent } from './pages/personal-info/personal-info.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,9 @@ import { PersonalInfoComponent } from './pages/personal-info/personal-info.compo
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
