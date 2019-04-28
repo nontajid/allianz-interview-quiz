@@ -1,0 +1,13 @@
+.c-button {
+  padding: 8px 16px;
+  background-color: #3939ff;
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  
+  &:hover {
+    background-color: rgba(57, 57, 255, 0.745);
+  }
+}

@@ -1,0 +1,27 @@
+.c-stepper{
+  max-width: 1320px;
+  display: block;
+  margin: 0 auto;
+}
+
+.c-stepper__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.c-stepper__item {
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.c-stepper__item--active {
+  background-color: #ececec;
+}

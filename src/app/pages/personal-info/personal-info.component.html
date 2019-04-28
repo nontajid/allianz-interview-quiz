@@ -1,0 +1,28 @@
+<div>
+  <div>
+    <label for="name">
+      Full Name:
+        <input type="text" id="name" placeholder="full name" [(ngModel)]="mainJoiner.name">
+    </label>
+  </div>
+  <div>
+    <div>
+        <label for="name">
+          Email:
+            <input type="email" id="email" placeholder="email" [(ngModel)]="mainJoiner.email">
+        </label>      
+    </div>
+    <div>
+        <label for="name">
+          Date of Birth (dd/mm/yyyy):
+            <input type="date" id="date" [(ngModel)]="mainJoiner.dateOfBirth">
+        </label>    
+    </div>
+  </div>
+
+  {{mainJoiner | json}}
+
+  <div>
+      <app-button>Save & Next</app-button>
+  </div>
+</div>

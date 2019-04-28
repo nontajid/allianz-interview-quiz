@@ -1,0 +1,11 @@
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, distinctio. Recusandae praesentium at quae voluptatem reiciendis nobis, earum veritatis? Natus eaque sunt itaque labore minima, suscipit architecto nisi unde vero!</p>
+<div>
+  <label for="term-check">
+    <input type="checkbox" id="term-check" [(ngModel)]="agreeTerm">
+    Lorem ipsum dolor, sit amet consectetur adipisicing
+  </label>
+  <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+  <div>
+      <app-button (click)="agree()">Agree</app-button>
+  </div>
+</div>
