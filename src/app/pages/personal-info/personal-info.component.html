@@ -1,28 +1,35 @@
-<div>
+<form [formGroup]="mainJoinerForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">
       Full Name:
-        <input type="text" id="name" placeholder="full name" [(ngModel)]="mainJoiner.name">
+        <input type="text" id="name"  pattern="[a-zA-Z ]*" placeholder="full name"  formControlName="name" required>
     </label>
+    <span class="error-message" [hidden]="!mainJoinerForm.get('name').touched || mainJoinerForm.get('name').valid">
+      name is require and must not contain special character or number
+    </span>
   </div>
   <div>
     <div>
-        <label for="name">
+        <label for="email">
           Email:
-            <input type="email" id="email" placeholder="email" [(ngModel)]="mainJoiner.email">
-        </label>      
+            <input type="email" id="email" placeholder="email" formControlName="email" required>
+        </label>
+        <span class="error-message" [hidden]="!mainJoinerForm.get('email').touched || mainJoinerForm.get('email').valid">
+          email is require and must be in correct format
+        </span>
     </div>
     <div>
-        <label for="name">
+        <label for="dateOfBirth">
           Date of Birth (dd/mm/yyyy):
-            <input type="date" id="date" [(ngModel)]="mainJoiner.dateOfBirth">
-        </label>    
+            <input type="date" id="dateOfBirth" formControlName="dateOfBirth" required>
+        </label>
+        <span class="error-message" [hidden]="!mainJoinerForm.get('dateOfBirth').touched || mainJoinerForm.get('dateOfBirth').valid">
+          age must be over 18
+        </span>
     </div>
   </div>
-
-  {{mainJoiner | json}}
-
   <div>
-      <app-button>Save & Next</app-button>
+      <button type="submit" [disabled]="!mainJoinerForm.valid">Save & Next</button>
   </div>
-</div>
+</form>
+

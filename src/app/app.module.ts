@@ -1,8 +1,10 @@
+// Module
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+// Component
 import { AppComponent } from './app.component';
 import { StepperComponent } from './basic/stepper/stepper.component';
 import { ButtonComponent } from './basic/button/button.component';
@@ -23,6 +25,7 @@ import { PersonalInfoComponent } from './pages/personal-info/personal-info.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
