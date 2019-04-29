@@ -1,7 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
-import { Joiner } from './joiner';
-import { MainJoiner } from './main-joiner';
+import { Joiner } from './model/joiner';
+import { MainJoiner } from './model/main-joiner';
 
 @Injectable({
   providedIn: 'root',

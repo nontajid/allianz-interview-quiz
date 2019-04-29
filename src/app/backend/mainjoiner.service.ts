@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { MainJoiner } from '../main-joiner';
+import { MainJoiner } from '../model/main-joiner';
 
 @Injectable({
   providedIn: 'root'

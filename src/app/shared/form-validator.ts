@@ -8,7 +8,6 @@ export function ageValidator(minAge: number): ValidatorFn {
             const ageDiffMs = Date.now() - new Date(control.value).getTime();
             const ageDate = new Date(ageDiffMs);
             const currentAge = ageDate.getUTCFullYear() - 1970;
-            console.log(currentAge);
             
             const isOverAgeLimit = currentAge >= minAge;
             result = !isOverAgeLimit ? {ageUnderLimit: {ageLimit: minAge}} : null;
