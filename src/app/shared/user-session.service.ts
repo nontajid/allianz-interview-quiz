@@ -14,6 +14,6 @@ export class UserSessionService extends Session {
   }
 
   getUserStep(): number | null {
-    return this.get('userStep');
+    return this.get('userStep') || 1;
   }
 }
