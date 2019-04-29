@@ -14,6 +14,7 @@ import { TermComponent } from './pages/term/term.component';
 import { PersonalInfoComponent } from './pages/personal-info/personal-info.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { AdditionGuestComponent } from './pages/addition-guest/addition-guest.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     StepperComponent,
     DialogComponent,
     TermComponent,
-    PersonalInfoComponent
+    PersonalInfoComponent,
+    AdditionGuestComponent
   ],
   imports: [
     BrowserModule,

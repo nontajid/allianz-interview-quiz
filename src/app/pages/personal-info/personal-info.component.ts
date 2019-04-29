@@ -5,6 +5,8 @@ import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ageValidator } from 'src/app/shared/form-validator';
 import { MainjoinerService } from 'src/app/backend/mainjoiner.service';
+import { UserSessionService } from 'src/app/shared/user-session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal-info',
@@ -22,10 +24,21 @@ export class PersonalInfoComponent implements OnInit {
   constructor(
     private stepperService: StepperService,
     private formBuilder: FormBuilder,
-    private mainJoinerService: MainjoinerService) { }
+    private userSessionService: UserSessionService,
+    private mainJoinerService: MainjoinerService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.stepperService.activeStep(this.stepId);
+    const userStep = this.userSessionService.getUserStep();
+    
+    if(userStep > this.stepId) {
+      this.nextStep();
+    } else if (userStep === this.stepId) {
+      this.stepperService.completeStepBefore(this.stepId);
+      this.stepperService.activeStep(this.stepId);
+    } else {
+      this.router.navigate([this.stepperService.getStep(userStep).url]);
+    }
   }
 
   onSubmit() {
@@ -36,7 +49,14 @@ export class PersonalInfoComponent implements OnInit {
     this.mainJoinerService.addMainJoiner(newJoiner)
                           .subscribe(data => {
                             newJoiner.id = data.id;
-                            this.stepperService.completeStep(this.stepId);
+                            this.userSessionService.store('mainJoiner', newJoiner);
+                            this.nextStep();
                           });
+  }
+
+  nextStep() {
+    this.userSessionService.setUserStep(this.stepId + 1);
+    this.stepperService.completeStep(this.stepId);
+    this.router.navigate([this.stepperService.getStep(this.stepId + 1).url]);
   }
 }

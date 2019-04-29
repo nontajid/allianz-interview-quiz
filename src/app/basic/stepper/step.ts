@@ -3,4 +3,5 @@ export interface Step {
   label: string;
   active: boolean;
   complete: boolean;
+  url?: string;
 }
