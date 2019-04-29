@@ -1,3 +1,14 @@
-<p>
-  addition-guest works!
-</p>
+<div>
+{{mainJoiner.name}}
+
+<form *ngFor="let joiner of joiners" #joinerForm="ngForm">
+  <span [hidden]="joiner === editingJoiner">{{joiner.name}}</span>
+  <input pattern="[a-zA-Z ]*" [hidden]="joiner !== editingJoiner" ngModel [value]="joiner.name" name="name" #name type="text" required>
+  <button [hidden]="joiner == editingJoiner" (click)="edit(joiner)">Edit</button>
+  <button [hidden]="joiner == editingJoiner" (click)="delete(joiner)">Delete</button>
+  <button [hidden]="joiner !== editingJoiner" [disabled]="!joinerForm.form.valid" type="submit" (click)="update(name.value,joiner,joinerForm)">Update</button>
+  <button [hidden]="joiner !== editingJoiner" (click)="cancel(joiner)">Cancel</button>
+</form>
+
+<button [hidden]="(editingJoiner && !editingJoiner.id)" (click)="addNewField()">+</button>
+</div>

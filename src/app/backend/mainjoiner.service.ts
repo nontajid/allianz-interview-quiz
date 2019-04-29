@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { MainJoiner } from '../model/main-joiner';
@@ -8,13 +8,14 @@ import { MainJoiner } from '../model/main-joiner';
   providedIn: 'root'
 })
 export class MainjoinerService {
+  private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   private url = 'api/mainjoinner';
 
   constructor(
     private http: HttpClient) { }
 
   addMainJoiner(mainJoiner: MainJoiner): Observable<any> {
-    return this.http.post(this.url, mainJoiner)
+    return this.http.post(this.url, mainJoiner, this.httpOptions)
                     .pipe(
                       tap(_ => console.log('save Main Joinner')),
                       catchError( (err) => {
