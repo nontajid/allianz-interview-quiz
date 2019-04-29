@@ -16,7 +16,7 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const joiner = [
-      {id: 1, mainJoinnerId: 1, name: 'TestUser'}
+      {id: 1, mainJoinerId: 1, name: 'TestUser'}
     ];
 
     return {mainjoinner, joiner};
