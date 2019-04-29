@@ -43,6 +43,11 @@ button {
   &:hover {
     background-color: rgba(57, 57, 255, 0.745);
   }
+
+  &:disabled {
+    background-color: rgb(146, 146, 146);
+    color: rgb(202, 202, 202);
+  }
 }
 
 .error-message {
