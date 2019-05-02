@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pages } from '../pages';
 import { UserSessionService } from 'src/app/shared/user-session.service';
-import { StepperService } from 'src/app/services/components/stepper.service';
+import { StepperService } from 'src/app/moudules/register-dialog/services/stepper.service';
 import { Router } from '@angular/router';
 import { MainJoiner } from 'src/app/model/main-joiner';
 import { Joiner } from 'src/app/model/joiner';

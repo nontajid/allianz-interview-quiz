@@ -1,9 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Step } from '../../components/stepper/step';
+import { Step } from '../../../components/stepper/step';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class StepperService {
   private steps: Step[] = [
     {
@@ -11,21 +7,21 @@ export class StepperService {
       label: "1",
       active: false,
       complete: false,
-      url: 'term'
+      url: 'register/term'
     },
     {
       id: 2,
       label: "2",
       active: false,
       complete: false,
-      url: 'personal-info'
+      url: 'register/personal-info'
     },
     {
       id: 3,
       label: "3",
       active: false,
       complete: false,
-      url: 'addition-guest'
+      url: 'register/addition-guest'
     }
   ];
 

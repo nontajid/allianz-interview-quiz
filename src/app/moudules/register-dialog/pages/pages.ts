@@ -1,5 +1,5 @@
-import { UserSessionService } from '../shared/user-session.service';
-import { StepperService } from '../services/components/stepper.service';
+import { UserSessionService } from '../../../shared/user-session.service';
+import { StepperService } from '../services/stepper.service';
 import { Router } from '@angular/router';
 
 export class Pages {

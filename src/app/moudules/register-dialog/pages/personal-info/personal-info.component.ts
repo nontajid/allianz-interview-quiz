@@ -6,7 +6,7 @@ import { ageValidator } from 'src/app/shared/form-validator';
 import { MainjoinerService } from 'src/app/services/backend/mainjoiner.service';
 import { UserSessionService } from 'src/app/shared/user-session.service';
 import { Pages } from '../pages';
-import { StepperService } from 'src/app/services/components/stepper.service';
+import { StepperService } from 'src/app/moudules/register-dialog/services/stepper.service';
 import { Router } from '@angular/router';
 
 @Component({
