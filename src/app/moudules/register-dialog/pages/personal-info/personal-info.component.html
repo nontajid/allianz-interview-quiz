@@ -1,33 +1,35 @@
 <form [formGroup]="mainJoinerForm" (ngSubmit)="onSubmit()">
-  <div class="row">
-    <div class="row col col-12">
-      <label for="name" class="col col-12">
-        Full Name:
-      </label>
-      <input class="form-text col col-12" type="text" id="name"  pattern="[a-zA-Z ]*" placeholder="full name"  formControlName="name" required>
-      <span class="error-message col col-12" [hidden]="!mainJoinerForm.get('name').touched || mainJoinerForm.get('name').valid">
-        name is require and must not contain special character or number
-      </span>
+    <div class="l-grid">
+      <div class="l-grid__row">
+        <div class="l-grid__column-12">
+            <nx-formfield nxLabel="Full Name">
+              <input nxInput type="text" id="name"  pattern="[a-zA-Z ]*" required  formControlName="name"/>
+              <nx-message nxContext="error" nxFormfieldError>
+                  name is require and must not contain special character or number
+              </nx-message>  
+            </nx-formfield>
+        </div>
+        <div class="l-grid__column-6">
+            <nx-formfield nxLabel="Email">
+                <input nxInput type="email" id="email" required formControlName="email"/>
+                <nx-message nxContext="error" nxFormfieldError>
+                    email is require and must be in correct format
+                </nx-message>  
+            </nx-formfield>
+        </div>
+        <div class="l-grid__column-6">
+            <nx-formfield nxLabel="Date of damage">
+              <input nxInput nxDatefield type="date" id="dateOfBirth"  formControlName="dateOfBirth" required>
+              <nx-message nxContext="error" nxFormfieldError>
+                  age must be over 18
+              </nx-message>
+            </nx-formfield>
+        </div>
+      </div>
+      <div class="l-grid__row">
+          <div class="row content-center">
+              <button type="submit" nxButton="primary" [disabled]="!mainJoinerForm.valid">Save & Next</button>
+          </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="row col col-6">
-        <label class="col col-12" for="email">Email:</label>
-        <input class="form-text col col-12" type="email" id="email" placeholder="email" formControlName="email" required>
-        <span class="error-message col col-12" [hidden]="!mainJoinerForm.get('email').touched || mainJoinerForm.get('email').valid">
-          email is require and must be in correct format
-        </span>
-    </div>
-    <div class="row col col-6">
-        <label class="col col-12" for="dateOfBirth">Date of Birth (dd/mm/yyyy):</label>
-        <input class="form-text col col-12" type="date" id="dateOfBirth" formControlName="dateOfBirth" required>
-        <span class="error-message" [hidden]="!mainJoinerForm.get('dateOfBirth').touched || mainJoinerForm.get('dateOfBirth').valid">
-          age must be over 18
-        </span>
-    </div>
-  </div>
-  <div class="row content-center">
-      <button type="submit" [disabled]="!mainJoinerForm.valid">Save & Next</button>
-  </div>
 </form>
-

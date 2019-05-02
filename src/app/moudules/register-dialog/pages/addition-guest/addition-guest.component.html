@@ -1,28 +1,43 @@
-<div class="row">
-  <form class="row" #mainJoinerForm="ngForm" (ngSubmit)="onMainJoinerSubmit(mainJoinerForm)">
-      <div class="space-vertical-s col col-6">
-        <span [hidden]="mainJoinerEditMode">{{mainJoiner.name}}</span>
-        <input class="form-text" [hidden]="!mainJoinerEditMode" pattern="[a-zA-Z ]*" name="name" [ngModel]="mainJoiner.name" type="text" required>
+<div class="l-grid">
+      <!-- Main Joiner Form -->
+      <form class="l-grid__row" #mainJoinerForm="ngForm" (ngSubmit)="onMainJoinerSubmit(mainJoinerForm)">
+          <div class="l-grid__column-6">
+              <nx-formfield nxLabel="Name" *ngIf="mainJoinerEditMode">
+                <input nxInput  pattern="[a-zA-Z ]*" name="name" [ngModel]="mainJoiner.name" type="text" required/>
+                <nx-message nxContext="error" nxFormfieldError>
+                    Name must not empty or contain spacial character
+                </nx-message>    
+              </nx-formfield>
+              <p nxCopytext="large" *ngIf="!mainJoinerEditMode">{{mainJoiner.name}}</p>
+          </div>
+          <div class="l-grid__column-6">
+              <div class="l-grid__column-3" [hidden]="mainJoinerEditMode">
+                  <button nxButton="primary small-medium" (click)="mainJoinerEditMode = true;" type="button">Edit</button>
+              </div>
+              <div class="l-grid__column-3" [hidden]="!mainJoinerEditMode">
+                  <button nxButton="primary small-medium" [disabled]="!mainJoinerForm.form.valid" type="submit">Submit</button>
+              </div>
+          </div>
+      </form>
+      <!-- Additional Guest Form -->
+      <form *ngFor="let joiner of joiners" class="l-grid__row" #joinerForm="ngForm" (ngSubmit)="onSubmit(joinerForm, joiner)">
+        <div class="l-grid__column-6">
+          <span [hidden]="joiner === editingJoiner">{{joiner.name}}</span>
+          <nx-formfield nxLabel="Name" *ngIf="joiner === editingJoiner">
+            <input nxInput  pattern="[a-zA-Z ]*" name="name" [ngModel]="joiner.name" #name="ngModel" type="text" required/>
+            <nx-message nxContext="error" nxFormfieldError>
+                Name must not empty or contain spacial character
+            </nx-message>
+          </nx-formfield>
+        </div>
+        <div class="l-grid__column-6">
+          <button nxButton="primary small-medium"  *ngIf="joiner !== editingJoiner" (click)="edit(joiner)" type="button">Edit</button>
+          <button nxButton="emphasis small-medium" *ngIf="joiner !== editingJoiner" (click)="delete(joiner)" type="button">Delete</button>
+          <button nxButton="primary small-medium"  *ngIf="joiner === editingJoiner" [disabled]="!joinerForm.form.valid" type="submit">Update</button>
+          <button nxButton="primary small-medium"  *ngIf="joiner === editingJoiner" (click)="cancel(joiner, joinerForm)" type="button">Cancel</button>
+        </div>
+      </form>
+      <div class="l-grid__row">
+          <button nxButton="primary small-medium" *ngIf="(!editingJoiner || editingJoiner.id)" (click)="addNewField()">+</button>
       </div>
-      <div class="space-vertical-s col col-6">
-        <button class="action-btn" [hidden]="mainJoinerEditMode" (click)="mainJoinerEditMode = true;" type="button">Edit</button>
-        <button class="action-btn" [hidden]="!mainJoinerEditMode" type="submit">Submit</button>
-      </div>
-  </form>
 </div>
-<div class="row">
-  <form *ngFor="let joiner of joiners" class="row" #joinerForm="ngForm" (ngSubmit)="onSubmit(joinerForm, joiner)">
-    <div class="space-vertical-s col col-6">
-      <span [hidden]="joiner === editingJoiner">{{joiner.name}}</span>
-      <input class="form-text" pattern="[a-zA-Z ]*" [hidden]="joiner !== editingJoiner" name="name"  [ngModel]="joiner.name" #name="ngModel" type="text" required>
-      <span class="error-message" [hidden]="!name.touched || name.valid">Name must not empty or contain spacial character</span>
-    </div>
-    <div class="space-vertical-s col col-6">
-      <button class="action-btn" [hidden]="joiner === editingJoiner" (click)="edit(joiner)" type="button">Edit</button>
-      <button class="action-btn" [hidden]="joiner === editingJoiner" (click)="delete(joiner)" type="button">Delete</button>
-      <button class="action-btn" [hidden]="joiner !== editingJoiner" [disabled]="!joinerForm.form.valid" type="submit">Update</button>
-      <button class="action-btn" [hidden]="joiner !== editingJoiner" (click)="cancel(joiner, joinerForm)" type="button">Cancel</button>
-    </div>
-  </form>
-</div>
-<button [hidden]="(editingJoiner && !editingJoiner.id)" (click)="addNewField()">+</button>

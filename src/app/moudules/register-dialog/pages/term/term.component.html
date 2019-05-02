@@ -1,11 +1,16 @@
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, distinctio. Recusandae praesentium at quae voluptatem reiciendis nobis, earum veritatis? Natus eaque sunt itaque labore minima, suscipit architecto nisi unde vero!</p>
-<div>
-  <label for="term-check">
-    <input type="checkbox" id="term-check" [(ngModel)]="agreeTerm">
-    Lorem ipsum dolor, sit amet consectetur adipisicing
-  </label>
-  <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
-  <div>
-      <button (click)="agree()">Agree</button>
+<div class="l-grid">
+  <div class="l-grid__row">
+    <div class="l-grid__column-12">
+        <p nxCopytext="large">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, distinctio. Recusandae praesentium at quae voluptatem reiciendis nobis, earum veritatis? Natus eaque sunt itaque labore minima, suscipit architecto nisi unde vero!</p>
+    </div>
+    <div class="l-grid__column-12">
+        <nx-checkbox id="term-check" [(ngModel)]="agreeTerm">
+            Lorem ipsum dolor, sit amet consectetur adipisicing
+        </nx-checkbox>
+        <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+    </div>
+    <div class="l-grid__column-12">
+        <button (click)="agree()" nxButton='primary'>Agree</button>
+    </div>
   </div>
 </div>

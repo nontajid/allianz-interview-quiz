@@ -1,5 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NxCheckboxModule, 
+         NxButtonModule,
+         NxCopytextModule,
+         NxMessageModule } from '@allianz/ngx-ndbx';
+
+import { NxInputModule } from '@allianz/ngx-ndbx/input';
+import { NxNativeDateModule } from '@allianz/ngx-ndbx/datefield';
+import { NxDatefieldModule } from '@allianz/ngx-ndbx/datefield';
+import { NxFormfieldModule } from '@allianz/ngx-ndbx/formfield';
 
 import { RegisterDialogRoutingModule } from './register-dialog-routing.module';
 import { RegisterDialogComponent } from './register-dialog.component';
@@ -11,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StepperComponent } from 'src/app/components/stepper/stepper.component';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { StepperService } from './services/stepper.service';
+import { from } from 'rxjs';
 
 @NgModule({
   providers: [
@@ -28,7 +38,15 @@ import { StepperService } from './services/stepper.service';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    RegisterDialogRoutingModule
+    RegisterDialogRoutingModule,
+    NxCheckboxModule,
+    NxButtonModule,
+    NxCopytextModule,
+    NxDatefieldModule,
+    NxNativeDateModule,
+    NxInputModule,
+    NxFormfieldModule,
+    NxMessageModule
   ]
 })
 export class RegisterDialogModule { }
