@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSessionService } from 'src/app/shared/user-session.service';
 import { Pages } from '../pages';
-import { StepperService } from 'src/app/component-service/stepper.service';
+import { StepperService } from 'src/app/services/components/stepper.service';
 import { Router } from '@angular/router';
 
 @Component({

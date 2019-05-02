@@ -8,14 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Component
 import { AppComponent } from './app.component';
-import { StepperComponent } from './basic/stepper/stepper.component';
-import { DialogComponent } from './basic/dialog/dialog.component';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 import { TermComponent } from './pages/term/term.component';
 import { PersonalInfoComponent } from './pages/personal-info/personal-info.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { AdditionGuestComponent } from './pages/addition-guest/addition-guest.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterDialogModule } from './moudules/register-dialog/register-dialog.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    RegisterDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

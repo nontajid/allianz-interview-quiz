@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Step } from './basic/stepper/step';
-import { StepperService } from './component-service/stepper.service';
+import { Step } from './components/stepper/step';
+import { StepperService } from './services/components/stepper.service';
 
 @Component({
   selector: 'app-root',

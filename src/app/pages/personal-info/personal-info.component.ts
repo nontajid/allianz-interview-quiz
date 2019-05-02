@@ -3,10 +3,10 @@ import { MainJoiner } from 'src/app/model/main-joiner';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ageValidator } from 'src/app/shared/form-validator';
-import { MainjoinerService } from 'src/app/backend/mainjoiner.service';
+import { MainjoinerService } from 'src/app/services/backend/mainjoiner.service';
 import { UserSessionService } from 'src/app/shared/user-session.service';
 import { Pages } from '../pages';
-import { StepperService } from 'src/app/component-service/stepper.service';
+import { StepperService } from 'src/app/services/components/stepper.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Step } from '../basic/stepper/step';
+import { Step } from '../../components/stepper/step';
 
 @Injectable({
   providedIn: 'root'
