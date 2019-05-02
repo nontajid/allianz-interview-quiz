@@ -23,4 +23,14 @@ export class MainjoinerService {
                         return of(err);
                       }));
   }
+
+  updateMainJoiner(mainJoiner: MainJoiner): Observable<any> {
+    return this.http.put(this.url, mainJoiner, this.httpOptions)
+                    .pipe(
+                      tap(_ => console.log('updateMainJoiner Main Joinner')),
+                      catchError( (err) => {
+                        console.log(`func:updateMainJoiner err:${err}`);
+                        return of(err);
+                      }));
+  }
 }

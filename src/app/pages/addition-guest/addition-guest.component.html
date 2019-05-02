@@ -1,14 +1,28 @@
-<div>
-{{mainJoiner.name}}
-
-<form *ngFor="let joiner of joiners" #joinerForm="ngForm">
-  <span [hidden]="joiner === editingJoiner">{{joiner.name}}</span>
-  <input pattern="[a-zA-Z ]*" [hidden]="joiner !== editingJoiner" ngModel [value]="joiner.name" name="name" #name type="text" required>
-  <button [hidden]="joiner == editingJoiner" (click)="edit(joiner)">Edit</button>
-  <button [hidden]="joiner == editingJoiner" (click)="delete(joiner)">Delete</button>
-  <button [hidden]="joiner !== editingJoiner" [disabled]="!joinerForm.form.valid" type="submit" (click)="update(name.value,joiner,joinerForm)">Update</button>
-  <button [hidden]="joiner !== editingJoiner" (click)="cancel(joiner)">Cancel</button>
-</form>
-
-<button [hidden]="(editingJoiner && !editingJoiner.id)" (click)="addNewField()">+</button>
+<div class="row">
+  <form class="row" #mainJoinerForm="ngForm" (ngSubmit)="onMainJoinerSubmit(mainJoinerForm)">
+      <div class="space-vertical-s col col-6">
+        <span [hidden]="mainJoinerEditMode">{{mainJoiner.name}}</span>
+        <input class="form-text" [hidden]="!mainJoinerEditMode" pattern="[a-zA-Z ]*" name="name" [ngModel]="mainJoiner.name" type="text" required>
+      </div>
+      <div class="space-vertical-s col col-6">
+        <button class="action-btn" [hidden]="mainJoinerEditMode" (click)="mainJoinerEditMode = true;" type="button">Edit</button>
+        <button class="action-btn" [hidden]="!mainJoinerEditMode" type="submit">Submit</button>
+      </div>
+  </form>
 </div>
+<div class="row">
+  <form *ngFor="let joiner of joiners" class="row" #joinerForm="ngForm" (ngSubmit)="onSubmit(joinerForm, joiner)">
+    <div class="space-vertical-s col col-6">
+      <span [hidden]="joiner === editingJoiner">{{joiner.name}}</span>
+      <input class="form-text" pattern="[a-zA-Z ]*" [hidden]="joiner !== editingJoiner" name="name"  [ngModel]="joiner.name" #name="ngModel" type="text" required>
+      <span class="error-message" [hidden]="!name.touched || name.valid">Name must not empty or contain spacial character</span>
+    </div>
+    <div class="space-vertical-s col col-6">
+      <button class="action-btn" [hidden]="joiner === editingJoiner" (click)="edit(joiner)" type="button">Edit</button>
+      <button class="action-btn" [hidden]="joiner === editingJoiner" (click)="delete(joiner)" type="button">Delete</button>
+      <button class="action-btn" [hidden]="joiner !== editingJoiner" [disabled]="!joinerForm.form.valid" type="submit">Update</button>
+      <button class="action-btn" [hidden]="joiner !== editingJoiner" (click)="cancel(joiner, joinerForm)" type="button">Cancel</button>
+    </div>
+  </form>
+</div>
+<button [hidden]="(editingJoiner && !editingJoiner.id)" (click)="addNewField()">+</button>

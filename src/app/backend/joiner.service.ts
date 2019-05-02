@@ -35,8 +35,8 @@ export class JoinerService {
     );
   }
   
-  deleteJoiner (joiner: Joiner): Observable<Joiner> {
-    return this.http.delete<Joiner>(`${this.url}/${joiner.id}`, this.httpOptions).pipe(
+  deleteJoiner (joiner: Joiner): Observable<any> {
+    return this.http.delete(`${this.url}/${joiner.id}`, this.httpOptions).pipe(
       tap(_ => console.log(`deleteJoiner with id ${joiner.id}`)),
       catchError(err => {
         console.log(`func:deleteJoiner error update ${joiner.id} with ${err}`);

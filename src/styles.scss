@@ -58,6 +58,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 28px;
+  width: 100%;
 }
 
 .col-12 {
@@ -70,4 +71,9 @@ button {
 
 .content-center {
   justify-content: center;
+}
+
+.space-vertical-s {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
