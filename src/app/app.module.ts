@@ -15,6 +15,7 @@ import { PersonalInfoComponent } from './pages/personal-info/personal-info.compo
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { AdditionGuestComponent } from './pages/addition-guest/addition-guest.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdditionGuestComponent } from './pages/addition-guest/addition-guest.co
     DialogComponent,
     TermComponent,
     PersonalInfoComponent,
-    AdditionGuestComponent
+    AdditionGuestComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
