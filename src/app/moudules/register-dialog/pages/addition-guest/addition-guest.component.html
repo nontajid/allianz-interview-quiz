@@ -22,7 +22,7 @@
       <!-- Additional Guest Form -->
       <form *ngFor="let joiner of joiners" class="l-grid__row" #joinerForm="ngForm" (ngSubmit)="onSubmit(joinerForm, joiner)">
         <div class="l-grid__column-6">
-          <span [hidden]="joiner === editingJoiner">{{joiner.name}}</span>
+            <p nxCopytext="large" *ngIf="joiner !== editingJoiner">{{joiner.name}}</p>
           <nx-formfield nxLabel="Name" *ngIf="joiner === editingJoiner">
             <input nxInput  pattern="[a-zA-Z ]*" name="name" [ngModel]="joiner.name" #name="ngModel" type="text" required/>
             <nx-message nxContext="error" nxFormfieldError>
@@ -37,7 +37,7 @@
           <button nxButton="primary small-medium"  *ngIf="joiner === editingJoiner" (click)="cancel(joiner, joinerForm)" type="button">Cancel</button>
         </div>
       </form>
-      <div class="l-grid__row">
-          <button nxButton="primary small-medium" *ngIf="(!editingJoiner || editingJoiner.id)" (click)="addNewField()">+</button>
+      <div class="l-grid__row justify-content-center">
+          <button nxButton="cta medium" *ngIf="(!editingJoiner || editingJoiner.id)" (click)="addNewField()"><nx-icon name="product-plus"></nx-icon></button>
       </div>
 </div>
