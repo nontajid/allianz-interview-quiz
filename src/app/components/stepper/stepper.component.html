@@ -1,16 +1,12 @@
-<div class="c-stepper">
-  <ul class="c-stepper__list">
-    <li *ngFor="let step of steps" 
-        class="c-stepper__item" 
-        [class.c-stepper__item--active]="step.active"
-        [class.c-stepper__item--complete]="step.complete"
-    >
-    <ng-container *ngIf="step.complete; else elseTemplate">
-        <i class="fas fa-check"></i>
-    </ng-container>
-    <ng-template #elseTemplate>
-        {{step.label}}
-    </ng-template>
-    </li>
-  </ul>
-</div>
+<div class="l-grid">
+    <div class="l-grid__row justify-content-center">
+        <div class="l-grid__column-6">
+          <nx-multi-stepper #stepperElement>
+              <ng-container *ngFor="let step of steps">
+                <nx-step [label]="step.label" [completed]="step.complete"></nx-step>
+              </ng-container>
+            </nx-multi-stepper>
+        </div>
+      </div>
+    </div>
+  

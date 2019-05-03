@@ -21,10 +21,6 @@ export class TermComponent extends Pages implements OnInit {
       super(userSessionService, stepperService, router);
   }
 
-  ngOnInit() {
-    this.toCurrentStep();
-  }
-
   agree() {
     if (this.agreeTerm === true) {
       this.errorMessage = false;

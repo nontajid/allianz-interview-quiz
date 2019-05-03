@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.scss']
 })
-export class PersonalInfoComponent extends Pages implements OnInit {
+export class PersonalInfoComponent extends Pages {
   stepId = 2;
   public mainJoinerForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
@@ -29,10 +29,6 @@ export class PersonalInfoComponent extends Pages implements OnInit {
     private formBuilder: FormBuilder,
     private mainJoinerService: MainjoinerService) {
       super(userSessionService, stepperService, router);
-  }
-
-  ngOnInit() {
-    this.toCurrentStep();
   }
 
   onSubmit() {

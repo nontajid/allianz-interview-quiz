@@ -11,20 +11,17 @@ export class Pages {
     public router: Router
   ) {}
 
-  toCurrentStep() {
-    const userStep = this.userSessionService.getUserStep();
-    
-    if(userStep > this.stepId) {
-      this.nextStep();
-    } else if (userStep === this.stepId) {
-      this.stepperService.completeStepBefore(this.stepId);
-      this.stepperService.activeStep(this.stepId);
-    } else {
-      this.router.navigate([this.stepperService.getStep(userStep).url]);
-    }
+  ngOnInit(): void {
+    this.setStepper();
+  }
+
+  setStepper() {
+    this.stepperService.activeStep(this.stepId);
+    this.stepperService.completeStepBefore(this.stepId);
   }
 
   nextStep() {
+    this.stepperService.activeStep(this.stepId + 1);
     this.userSessionService.setUserStep(this.stepId + 1);
     this.stepperService.completeStep(this.stepId);
     this.router.navigate([this.stepperService.getStep(this.stepId + 1).url]);

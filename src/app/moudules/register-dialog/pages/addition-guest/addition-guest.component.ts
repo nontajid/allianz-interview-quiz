@@ -98,10 +98,6 @@ export class AdditionGuestComponent extends Pages implements OnInit {
     this.editingJoiner = joiner;
   }
 
-  ngOnInit() {
-    this.toCurrentStep();
-  }
-
   nextStep() {
     return;
   }

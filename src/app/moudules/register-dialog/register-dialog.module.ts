@@ -5,6 +5,7 @@ import { NxCheckboxModule,
          NxCopytextModule,
          NxMessageModule } from '@allianz/ngx-ndbx';
 
+import { NxIconModule } from '@allianz/ngx-ndbx/icon';
 import { NxInputModule } from '@allianz/ngx-ndbx/input';
 import { NxNativeDateModule } from '@allianz/ngx-ndbx/datefield';
 import { NxDatefieldModule } from '@allianz/ngx-ndbx/datefield';
@@ -19,8 +20,9 @@ import { TermComponent } from './pages/term/term.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StepperComponent } from 'src/app/components/stepper/stepper.component';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { NxProgressStepperModule } from '@allianz/ngx-ndbx/progress-stepper';
+
 import { StepperService } from './services/stepper.service';
-import { from } from 'rxjs';
 
 @NgModule({
   providers: [
@@ -46,7 +48,9 @@ import { from } from 'rxjs';
     NxNativeDateModule,
     NxInputModule,
     NxFormfieldModule,
-    NxMessageModule
+    NxMessageModule,
+    NxIconModule,
+    NxProgressStepperModule
   ]
 })
 export class RegisterDialogModule { }
